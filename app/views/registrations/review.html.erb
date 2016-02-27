@@ -1,0 +1,17 @@
+<h1>Registration review</h1>
+
+<p>
+<dl>
+  <dt>First name</dt>
+  <dd><%= @response_params['first_name'] %></dd>
+  <dt>Last name</dt>
+  <dd><%= @response_params['last_name'] %></dd>
+  <dt>E-mail</dt>
+  <dd><%= @response_params['payer'] %></dd>
+</dl>
+</p>
+
+<p>Item: <strong><%= @response_params['name'] %></strong></p>
+<p>Total price: <strong><%= @money.format %></strong></p>
+
+<%= link_to 'Place order', complete_registration_path(@registration, :token => @token, :PayerID => @payer_id) %>

@@ -31,4 +31,13 @@ Rails4::Application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  config.after_initialize do
+    ActiveMerchant::Billing::Base.mode = :test
+    paypal_options = YAML::load_file( File.join( Rails.root, 'config', 'paypal.yml' ) )[Rails.env]
+    ::GATEWAY = ActiveMerchant::Billing::PaypalExpressGateway.new(paypal_options)
+    ActiveMerchant::Billing::PaypalGateway.wiredump_device = File.new(File.join([Rails.root, "log", "paypal.log"]), "a")
+    ActiveMerchant::Billing::PaypalGateway.wiredump_device.sync = true
+    OffsitePayments.mode = :test
+  end
 end

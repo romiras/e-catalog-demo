@@ -14,7 +14,7 @@
       <tr>
         <td><%= poster.name %></td>
         <td><%= poster.price %></td>
-        <td><%= link_to 'Buy', '#' %></td>
+        <td><%= link_to 'Buy', new_registration_path(sku: poster.sku) %></td>
       </tr>
     <% end %>
   </tbody>
