@@ -1,2 +1,21 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<h1>Listing posters</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @posters.each do |poster| %>
+      <tr>
+        <td><%= poster.name %></td>
+        <td><%= poster.price %></td>
+        <td><%= link_to 'Buy', '#' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
