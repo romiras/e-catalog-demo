@@ -14,7 +14,11 @@
       <tr>
         <td><%= poster.name %></td>
         <td><%= poster.price %></td>
-        <td><%= link_to 'Buy', new_registration_path(sku: poster.sku) %></td>
+        <td>
+          <%= link_to new_registration_path(sku: poster.sku), :class => "buy" do %>
+            <img src="https://www.paypalobjects.com/webstatic/en_US/btn/btn_buynow_86x21.png" alt="Buy now"/>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>

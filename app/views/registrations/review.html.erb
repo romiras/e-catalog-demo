@@ -14,4 +14,6 @@
 <p>Item: <strong><%= @response_params['name'] %></strong></p>
 <p>Total price: <strong><%= @money.format %></strong></p>
 
-<%= link_to 'Place order', complete_registration_path(@registration, :token => @token, :PayerID => @payer_id) %>
+<%= link_to complete_registration_path(@registration, :token => @token, :PayerID => @payer_id), :class => "buy" do %>
+  <img src="https://www.paypalobjects.com/webstatic/en_US/btn/btn_paynow_107x26.png" alt="Pay now"/>
+<% end %>
