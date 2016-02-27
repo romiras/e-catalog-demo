@@ -9,6 +9,17 @@ Rails4::Application.routes.draw do
   # root 'welcome#index'
   root 'home#index'
 
+  resources :registrations, only: [:new, :create] do
+    member do
+      get  'review'
+      get  'complete'
+      get  'done'
+      get  'failed'
+    end
+  end
+
+  post 'gateway/hook' => 'registrations#hook'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

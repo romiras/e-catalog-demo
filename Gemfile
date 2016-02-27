@@ -29,6 +29,10 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'devise', '~> 3'
 gem 'activeadmin', '~> 1.0.0.pre2'
+gem 'json'
+gem 'money', '< 6.7.0'
+gem 'activemerchant', '< 2', :require => 'active_merchant'
+gem 'offsite_payments', '< 2.2'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
