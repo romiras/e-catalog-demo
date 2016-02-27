@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: Some name
+  sku: ABC-1-2-1
+  price: 100.0
+
+two:
+  name: Some different name
+  sku: ABC-1-2-2
+  price: 150.0
