@@ -16,6 +16,9 @@ class RegistrationsController < ApplicationController
     "Expired" => Registration::EXPIRED
   }
 
+  # Time in seconds given for downloading document until URL gets expired
+  URL_EXPIRATION_TIME = 60
+
   # GET /registrations/new
   def new
     @registration = Registration.new
@@ -137,6 +140,19 @@ class RegistrationsController < ApplicationController
   end
 
   def done
+    unless @registration.completed?
+      flash[:error] = "Registration not completed yet!"
+      redirect_to root_path; return
+    end
+
+    document = @registration.poster.document
+    @downloadable = Document.downloadable_for?(@registration)
+    if @downloadable
+      @document_url = document.public_url(URL_EXPIRATION_TIME)
+    else
+      @document_url = "#"
+    end
+
     flash[:notice] = "Complete"
   end
 
