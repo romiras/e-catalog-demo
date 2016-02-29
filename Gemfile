@@ -33,6 +33,9 @@ gem 'json'
 gem 'money', '< 6.7.0'
 gem 'activemerchant', '< 2', :require => 'active_merchant'
 gem 'offsite_payments', '< 2.2'
+gem 'aws-sdk', '~> 2', require: false
+
+gem 'dotenv-rails', groups: [:development, :test]
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
