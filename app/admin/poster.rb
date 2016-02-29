@@ -23,7 +23,11 @@ ActiveAdmin.register Poster do
       @poster = Poster.new(attrs)
       if @poster.save
         # upload
-        FileUploader.upload_to_s3(attachment.tempfile, ENV['S3_BUCKET'], ENV['CAT_FOLDER'], attachment.original_filename)
+        filename = attachment.original_filename.to_s
+        s3_file = FileUploader.upload_to_s3(attachment.tempfile, filename)
+        if s3_file
+          @poster.create_document(filename: filename)
+        end
 
         redirect_to admin_poster_path(@poster)
       else
@@ -38,7 +42,15 @@ ActiveAdmin.register Poster do
       if @poster.save
         # upload
         if attachment
-          FileUploader.upload_to_s3(attachment.tempfile, ENV['S3_BUCKET'], ENV['CAT_FOLDER'], attachment.original_filename)
+          filename = attachment.original_filename.to_s
+          s3_file = FileUploader.upload_to_s3(attachment.tempfile, filename)
+          if s3_file
+            if @poster.document
+              @poster.document.update_attribute(:filename, filename)
+            else
+              @poster.create_document(filename: filename)
+            end
+          end
         end
 
         redirect_to admin_posters_path

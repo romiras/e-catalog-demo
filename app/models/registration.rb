@@ -15,4 +15,8 @@ class Registration < ActiveRecord::Base
   COMPLETED = 10
   FAILED = -1
 
+  def completed?
+    self.status.eql?(COMPLETED)
+  end
+
 end
