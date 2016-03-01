@@ -1,7 +1,7 @@
 <%= form_for(@registration) do |f| %>
   <% if @registration.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@registration.errors.count, "error") %> prohibited this registration from being saved:</h2>
+      <h2><%= t "registration.errors", :count => @registration.errors.count %>:</h2>
 
       <ul>
       <% @registration.errors.full_messages.each do |msg| %>
@@ -29,6 +29,6 @@
     <%= f.text_field :phone %>
   </div>
   <div class="actions">
-    <%= f.submit "Checkout", :type => :image, :src => "https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif" %>
+    <%= f.submit t("registration.checkout"), :type => :image, :src => "https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif" %>
   </div>
 <% end %>

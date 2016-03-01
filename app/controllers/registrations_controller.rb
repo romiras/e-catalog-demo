@@ -133,7 +133,7 @@ class RegistrationsController < ApplicationController
         redirect_to done_registration_path(@registration); return
       else
         logger.info "SECURITY: response NOT acknowledged! Failed on #{failed_details.inspect}"
-        flash[:error] = "A payment did not succeed."
+        flash[:error] = t "registration.payment_failed"
         redirect_to failed_registration_path(@registration); return
       end
     end
@@ -141,7 +141,7 @@ class RegistrationsController < ApplicationController
 
   def done
     unless @registration.completed?
-      flash[:error] = "Registration not completed yet!"
+      flash[:error] = t "registration.unfinished"
       redirect_to root_path; return
     end
 
@@ -153,7 +153,7 @@ class RegistrationsController < ApplicationController
       @document_url = "#"
     end
 
-    flash[:notice] = "Complete"
+    flash[:notice] = t "registration.complete"
   end
 
   private
