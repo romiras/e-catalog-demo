@@ -1,12 +1,12 @@
 <p id="notice"><%= flash[:notice] %></p>
 
 <p>
-  <strong>Congratulations! Your registration has been completed.</strong><br/>
-  Registration #<strong><%= @registration.id %></strong>
+  <strong><%= t "registration.done.congrats" %></strong><br/>
+  <%= t "registration.done.reg_num" %> #<strong><%= @registration.id %></strong>
 </p>
 <% if @downloadable -%>
 <p>
-  <strong>Note,</strong> the link to document will expire soon.<br/>
-  <%= link_to "Download", @document_url, target: "_blank" %>
+  <strong><%= t "registration.done.expiration_note1" %></strong> <%= t "registration.done.expiration_note2" %><br/>
+  <%= link_to t("registration.done.download"), @document_url, target: "_blank" %>
 </p>
 <% end -%>
