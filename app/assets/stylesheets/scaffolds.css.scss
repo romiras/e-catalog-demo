@@ -42,7 +42,8 @@ div {
 
 .field_with_errors {
   padding: 2px;
-  background-color: red;
+  background-color: #cf4848;
+  color: white;
   display: table;
 }
 
@@ -66,7 +67,32 @@ div {
   ul li {
     font-size: 12px;
     list-style: square;
+    margin-left: 1em;
   }
+}
+
+.inline-error {
+    background-color: #f2dede;
+    margin: 0.5em 0;
+    padding-left: 0.5em;
+}
+
+.notice {
+  background-color: #BEE8DD;
+  padding: 2px 6px;
+  text-align: center;
+}
+
+.warning {
+  background-color: #E5D683;
+  padding: 2px 6px;
+  text-align: center;
+}
+
+.error {
+  background-color: #D85C3D;
+  padding: 2px 6px;
+  text-align: center;
 }
 
 .buy:hover {
