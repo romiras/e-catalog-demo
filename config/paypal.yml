@@ -1,0 +1,14 @@
+development:
+    :login: "API_USERNAME_HERE"
+    :password: "API_PASSWORD_HERE"
+    :signature: "API_SIGNATURE_HERE"
+
+test:
+    :login: "API_USERNAME_HERE"
+    :password: "API_PASSWORD_HERE"
+    :signature: "API_SIGNATURE_HERE"
+
+production:
+    :login: "API_USERNAME_HERE"
+    :password: "API_PASSWORD_HERE"
+    :signature: "API_SIGNATURE_HERE"
